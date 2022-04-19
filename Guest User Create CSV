@@ -1,0 +1,12 @@
+with open('Guest-Test.csv', mode='r') as csv_file:
+  csv_reader = csv.reader(csv_file,delimiter=',')
+  header = next(csv_reader)
+
+  for line in csv_reader:
+    createUser = dashboard.networks.createNetworkMerakiAuthUser(
+    network_id, authorizations,
+    email = line[0],
+    name = line[1],
+    password = line[2],
+    accountType ='Guest',
+    emailPasswordToUser=True)
